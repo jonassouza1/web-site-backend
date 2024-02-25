@@ -7,9 +7,9 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "node server/src/server_bundle.js",
+    "start": "node index.js",
     "dev": "npm-run-all --parallel serve webpack:*",
-    "serve": "nodemon server/src/server_bundle.js",
+    "serve": "nodemon index.js",
     "webpack:server": "webpack --config webpack.server.ts --watch",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",

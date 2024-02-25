@@ -5,8 +5,8 @@ module.exports = {
   target: "node",
   mode: "production",
   output: {
-    filename: "server_bundle.js",
-    path: path.resolve(__dirname, "server/src"),
+    filename: "index.js",
+    path: path.resolve(__dirname, "./"),
   },
   resolve: {
     extensions: [".ts", ".js"],
