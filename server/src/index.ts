@@ -20,7 +20,9 @@ app.post("/user", async (req, res) => {
   const { name, password } = req.body;
 
   if (!name && !password) {
-    return res.status(400).send({ message: "the name  is obrigatory" });
+    return res
+      .status(400)
+      .send({ message: "It is necessary to fill in the field" });
   } else if (name.length <= 8) {
     return res
       .status(400)
