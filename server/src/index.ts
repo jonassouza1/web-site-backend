@@ -61,7 +61,9 @@ app.post("/userlogin", async (req, res) => {
   const { name, password } = req.body;
   const nameConverted = transformTheFirstLetterOfThePhraseIntoUppercase(name);
   if (!name) {
-    return res.status(400).send({ message: "the name  is obrigatory" });
+    return res
+      .status(400)
+      .send({ message: "It is necessary to fill in the field" });
   }
   try {
     const queryDuplicateUser: any = await database.query(
