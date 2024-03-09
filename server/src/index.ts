@@ -6,8 +6,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-function transformTheFirstLetterOfThePhraseIntoUppercase(text: string) {
-  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+function transformTheFirstLetterOfThePhraseIntoUppercase(text: any): string {
+  const inputText = String(text);
+  if (inputText.length === 0) {
+    return "";
+  }
+  return inputText.charAt(0).toUpperCase() + inputText.slice(1).toLowerCase();
 }
 function checkExistenceOfValueAndConvertToDateFormat(release_date?: string) {
   return release_date ? new Date(release_date) : undefined;
@@ -23,10 +27,10 @@ app.post("/user", async (req, res) => {
     return res
       .status(400)
       .send({ message: "It is necessary to fill in the field" });
-  } else if (name.length <= 8) {
+  } else if (name.length <= 5) {
     return res
       .status(400)
-      .send({ message: "Your name must have at least 8 letters..." });
+      .send({ message: "Your name must have at least 5 letters..." });
   } else if (password.length <= 8) {
     return res
       .status(400)
